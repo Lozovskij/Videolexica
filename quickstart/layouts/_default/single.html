@@ -1,0 +1,21 @@
+{{ define "main" }}
+    <a href="/">Home</a>
+    <article>
+        <h2> {{ .Title }} </h2>
+        <!-- {{ .Content }} -->
+    </article>
+    <span>Synonyms:</span>
+    <span>{{ .Params.synonyms }}</span>
+    <div id="player"></div>
+    <!-- <div id="videoId" style="display: hidden;" data-videoId="{{ .Params.videoId | safeHTML }}"></div> -->
+    <!-- <div id="videoId" {{ printf "data-videoId=" .Params.videoId}}></div> -->
+    
+    <div id="start" data-start="{{ .Params.start }}"></div>
+    <button id="replayBtn">Replay</button>
+    <script>
+        var videoId = "{{ .Params.videoId }}";
+        var start = "{{ .Params.start }}"
+    </script>
+    <script src="/player-loader.js"></script>
+    <script src="/replay-button.js"></script>
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <h1>List</h1>
+    <!-- {{ range .RegularPagesRecursive }}
+        <article>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </article>
+    {{ end }} -->
+    {{ range $taxonomy := .Site.Sections }}
+        <!-- <h4>{{ replace  $taxonomy.Title  "-" " " }}</h4> -->
+        <!-- <span>{{ $taxonomy.Title }}</span> -->
+        <span>{{ $taxonomy.Params.channelName }}</span> :
+        <span>{{ $taxonomy.Params.videoTitle }}</span>
+        <ul>
+            {{ range $taxonomy.Pages }}
+                <li><a href="{{ .Permalink }}"> {{ .Title }} </a> </li>
+            {{ end }}
+        </ul>
+    {{ end }}
+{{ end }}
