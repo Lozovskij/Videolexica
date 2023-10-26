@@ -6,9 +6,11 @@
     </article>
     <span>Synonyms:</span>
     <span>{{ .Params.synonyms }}</span>
-    <div id="player"></div>
-    <!-- <div id="videoId" style="display: hidden;" data-videoId="{{ .Params.videoId | safeHTML }}"></div> -->
-    <!-- <div id="videoId" {{ printf "data-videoId=" .Params.videoId}}></div> -->
+    
+    <div class="player-container">
+        <div id="thumbnail" onclick="loadYouTubeIframe()"></div>
+        <div id="player"></div>
+      </div>
     
     <div id="start" data-start="{{ .Params.start }}"></div>
     <button id="replayBtn">Replay</button>

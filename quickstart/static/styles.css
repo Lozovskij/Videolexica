@@ -5,3 +5,22 @@
     max-width: 640px;
     color: white;
 }
+
+.player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .player-container #thumbnail {
+    width: 640px; /* Replace with desired width */
+    height: 390px; /* Replace with desired height */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+
+
+  .player-container #player {
+    display: none; /* Hide the player initially */
+  }
