@@ -2,7 +2,6 @@
 title = "single"
 videoId = "75d_29QWELk"
 start = "240"
-synonyms = "individual, lone, solitary, separate, unique"
+synonyms = "test, test, test, test"
 +++
 
-This is the content of my Markdown file.

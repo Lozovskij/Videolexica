@@ -1,24 +1,44 @@
 {{ define "main" }}
-    <a href="/">Home</a>
-    <article>
-        <h2> {{ .Title }} </h2>
+<article>
+    <header>
+        <h2 id="title"> {{ .Title }} </h2>
         <!-- {{ .Content }} -->
-    </article>
-    <span>Synonyms:</span>
-    <span>{{ .Params.synonyms }}</span>
-    
-    <div class="player-container">
-        <div id="thumbnail" onclick="loadYouTubeIframe()"></div>
-        <div id="player"></div>
-      </div>
-    
-    <div id="start" data-start="{{ .Params.start }}"></div>
-    <button id="playBtn">Play</button>
-    <button id="replayBtn" style="display: none;">Replay</button>
-    <script>
-        var videoId = "{{ .Params.videoId }}";
-        var start = "{{ .Params.start }}"
-    </script>
-    <script src="/player-loader.js"></script>
-    <script src="/replay-button.js"></script>
+    </header>
+    <section>
+        <p>Example:</p>
+        <div class="player-container">
+            <div id="thumbnail" onclick="loadYouTubeIframe()"></div>
+            <div id="player"></div>
+        </div>
+        <div id="start" data-start="{{ .Params.start }}"></div>
+        <button id="playBtn">Play</button>
+        <button id="replayBtn" style="display: none;">Replay</button>
+    </section>
+    <section>
+        <p>
+            <span>Synonyms:</span>
+            <span id = "synonyms">{{ .Params.synonyms }}</span>
+        </p>
+    </section>
+    <section>
+        <p>Explore more words from the video:</p>
+        <div class="word-suggestions">
+            {{ $filename := .Params.videoId }}
+            {{ range index .Site.Data $filename }}
+                <span onclick="setNewValues('{{ .word }}','{{ .time }}','{{ .synonyms }}')" class="word-suggestion">{{ .word }}</span>
+            {{ end }}
+        </div>
+    </section>
+    <footer>
+        <p>Tags: <a href="#">Tag 1</a>, <a href="#">Tag 2</a>, <a href="#">Tag 3</a></p>
+    </footer>
+</article>
+<script>
+    var videoId = "{{ .Params.videoId }}";
+    var start = "{{ .Params.start }}";
+    var currentWord = "{{ .Title }}"
+</script>
+<script src="/player-loader.js"></script>
+<script src="/replay-button.js"></script>
+<script src="/words-suggestions.js"></script>
 {{ end }}

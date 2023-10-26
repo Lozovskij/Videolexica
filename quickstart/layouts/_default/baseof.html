@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
-    <title>{{ .Page.Title }}</title>
-</head>
-<body> 
-    {{ partial "navbar.html" . }}
-    {{ block "main" . }}
-    {{ end }}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles.css">
+        <title>{{ .Page.Title }}</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li> -->
+              </ul>
+            </nav>
+          </header>
+          <main>
+            <!-- {{ partial "navbar.html" . }} -->
+            {{ block "main" . }}
+            {{ end }}
+          </main>
+          <footer>
+            <p>&copy; 2023 Videolexica. All rights reserved.</p>
+          </footer>
+    </body>
 </html>

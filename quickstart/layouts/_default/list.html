@@ -5,11 +5,16 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </article>
     {{ end }} -->
-    {{ range $taxonomy := .Site.Sections }}
+    {{ range $taxonomy := .Site.Sections.ByPublishDate.Reverse }}
         <!-- <h4>{{ replace  $taxonomy.Title  "-" " " }}</h4> -->
         <!-- <span>{{ $taxonomy.Title }}</span> -->
         <span>{{ $taxonomy.Params.channelName }}</span> :
         <span>{{ $taxonomy.Params.videoTitle }}</span>
+        <br>
+        {{ $t := $taxonomy.Date }}
+        {{ $t = time.AsTime $t }}
+        {{ $format := "2 Jan 2006" }}
+        <span>{{ $t.Format $format }}</span>
         <ul>
             {{ range $taxonomy.Pages }}
                 <li><a href="{{ .Permalink }}"> {{ .Title }} </a> </li>
