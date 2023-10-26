@@ -13,7 +13,8 @@
       </div>
     
     <div id="start" data-start="{{ .Params.start }}"></div>
-    <button id="replayBtn">Replay</button>
+    <button id="playBtn">Play</button>
+    <button id="replayBtn" style="display: none;">Replay</button>
     <script>
         var videoId = "{{ .Params.videoId }}";
         var start = "{{ .Params.start }}"
