@@ -21,10 +21,12 @@ function changeColoring(word) {
     elements.forEach(element => {
         console.log(element.style);
         if (element.textContent === word) {
-            element.style.backgroundColor = 'yellow';
+            element.style.color = "#e8f9ed";
+            element.style.backgroundColor = '#568857';
         }
         else {
-            element.style.backgroundColor = 'white';
+            element.style.color = 'black';
+            element.style.backgroundColor = '#e8f9ed';
         }
     })
 

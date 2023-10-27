@@ -1,24 +1,29 @@
 {{ define "main" }}
-    <h1>List</h1>
-    <!-- {{ range .RegularPagesRecursive }}
-        <article>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </article>
-    {{ end }} -->
     {{ range $taxonomy := .Site.Sections.ByPublishDate.Reverse }}
         <!-- <h4>{{ replace  $taxonomy.Title  "-" " " }}</h4> -->
         <!-- <span>{{ $taxonomy.Title }}</span> -->
-        <span>{{ $taxonomy.Params.channelName }}</span> :
-        <span>{{ $taxonomy.Params.videoTitle }}</span>
+        <article id="{{$taxonomy.Params.videoId}}">
+            <header>
+                {{ $t := $taxonomy.Date }}
+                {{ $t = time.AsTime $t }}
+                {{ $format := "2 Jan 2006" }}
+                <h4 class="small-font">{{ $t.Format $format }} &nbsp; Edition: &nbsp; "{{ $taxonomy.Params.videoTitle }}"</h4>
+            </header>
+            <div>
+                <!-- Blog post excerpt or summary -->
+                <p class="small-font">
+                    Source: <span class="prepost__channel-name small-font">{{ $taxonomy.Params.channelName }}</span>
+                </p>
+            </div>
+            <footer>
+                <!-- <a href="[URL]">Read more</a> -->
+                <ul class="post-items">
+                    {{ range $taxonomy.Pages }}
+                        <li class="post-item"><a href="{{ .Permalink }}"> {{ .Title }} </a> </li>
+                    {{ end }}
+                </ul>
+            </footer>
+        </article>
         <br>
-        {{ $t := $taxonomy.Date }}
-        {{ $t = time.AsTime $t }}
-        {{ $format := "2 Jan 2006" }}
-        <span>{{ $t.Format $format }}</span>
-        <ul>
-            {{ range $taxonomy.Pages }}
-                <li><a href="{{ .Permalink }}"> {{ .Title }} </a> </li>
-            {{ end }}
-        </ul>
     {{ end }}
 {{ end }}

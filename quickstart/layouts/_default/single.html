@@ -1,27 +1,28 @@
 {{ define "main" }}
 <article>
     <header>
-        <h2 id="title"> {{ .Title }} </h2>
+        <h2 id="title" class="post__title"> {{ .Title }} </h2>
         <!-- {{ .Content }} -->
     </header>
     <section>
-        <p>Example:</p>
         <div class="player-container">
             <div id="thumbnail" onclick="loadYouTubeIframe()"></div>
             <div id="player"></div>
         </div>
         <div id="start" data-start="{{ .Params.start }}"></div>
         <button id="playBtn">Play</button>
-        <button id="replayBtn" style="display: none;">Replay</button>
+        <button id="replayBtn" style="display: none;" >Replay</button>
     </section>
-    <section>
+    <section class="post__synonyms">
         <p>
-            <span>Synonyms:</span>
+            <h4>Synonyms:</h4>
+        </p>
+        <p>
             <span id = "synonyms">{{ .Params.synonyms }}</span>
         </p>
     </section>
     <section>
-        <p>Explore more words from the video:</p>
+        <h4>Words from the video:</h4>
         <div class="word-suggestions">
             {{ $filename := .Params.videoId }}
             {{ range index .Site.Data $filename }}
@@ -29,8 +30,8 @@
             {{ end }}
         </div>
     </section>
-    <footer>
-        <p>Tags: <a href="#">Tag 1</a>, <a href="#">Tag 2</a>, <a href="#">Tag 3</a></p>
+    <footer class="post-footer">
+        <a href="{{ .Site.BaseURL }}#{{.Params.videoId}}" >Back</a>
     </footer>
 </article>
 <script>

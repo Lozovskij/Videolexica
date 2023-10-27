@@ -7,10 +7,10 @@
         <title>{{ .Page.Title }}</title>
     </head>
     <body>
-        <header>
+        <header class="main-header">
             <nav>
-              <ul>
-                <li><a href="/">Home</a></li>
+              <ul class="header-links">
+                <li><a class="header-links__home" href="/">Videolexica</a></li>
                 <!-- <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li> -->
               </ul>
@@ -22,7 +22,8 @@
             {{ end }}
           </main>
           <footer>
-            <p>&copy; 2023 Videolexica. All rights reserved.</p>
+            {{ $currentYear := now.Format "2006" }}
+            <p>&copy; {{ $currentYear }} Videolexica.com </p>
           </footer>
     </body>
 </html>
