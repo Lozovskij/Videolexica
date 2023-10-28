@@ -11,7 +11,7 @@
         </div>
         <div id="start" data-start="{{ .Params.start }}"></div>
         <button id="playBtn">Play</button>
-        <button id="replayBtn" style="display: none;" >Replay</button>
+        <button id="replayBtn" style="display: none;" >Repeat</button>
     </section>
     <section class="post__synonyms">
         <p>
@@ -31,7 +31,7 @@
         </div>
     </section>
     <footer class="post-footer">
-        <a href="{{ .Site.BaseURL }}#{{.Params.videoId}}" >Back</a>
+        <a class="post-footer__back" href="{{ .Site.BaseURL }}#{{.Params.videoId}}" >Back</a>
     </footer>
 </article>
 <script>

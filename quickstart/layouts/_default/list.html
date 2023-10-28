@@ -1,5 +1,6 @@
 {{ define "main" }}
     {{ range $taxonomy := .Site.Sections.ByPublishDate.Reverse }}
+        {{ if not (in .Section "about") }}
         <!-- <h4>{{ replace  $taxonomy.Title  "-" " " }}</h4> -->
         <!-- <span>{{ $taxonomy.Title }}</span> -->
         <article id="{{$taxonomy.Params.videoId}}">
@@ -25,5 +26,6 @@
             </footer>
         </article>
         <br>
+        {{end}}
     {{ end }}
 {{ end }}
