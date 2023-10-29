@@ -8,6 +8,7 @@
 :root {
     --dark-green: #568857;
     --light-green: #e8f9ed;
+    --max-width: 900px;
   }
 
 body {
@@ -16,13 +17,13 @@ body {
 }
 
 header {
-    max-width: 640px;
+    max-width: var(--max-width);
     width: 100%;
     margin: auto;
 }
 
 main {
-    max-width: 640px;
+    max-width: var(--max-width);
     width: 100%;
     margin: auto;
     min-height: 87vh;
@@ -32,13 +33,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
+    /* max-height: 360px; */
   }
   
   .player-container #thumbnail {
     width: 100%;
-    height: 0;
-    padding-top: 56.25%; 
     max-width: 640px;
+    height: 360px;
+    /* padding-top: 56.25%;  */
+    /* max-width: var(--max-width); */
     cursor: pointer;
     background-size: cover;
     background-position: center;
@@ -47,19 +51,23 @@ main {
   .player-container #player {
     display: none;
     width: 100%;
-    max-width: 640px;
+    max-width: var(--max-width);
+    max-height: 360px;
   }
 
   #playBtn, #replayBtn {
     width: 100%;
     min-height: 70px;
-    margin-top: 10px;
-    background-color: var(--light-green);
+    margin: 10px 0px;
+    background-color: white;
     color: var(--dark-green);
-    border: 1px solid;
-    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+    /* border: 1px solid;
+    border-radius: 7px; */
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
     font-weight: bold;
     cursor: pointer;
+
   }
 
   .word-suggestion {
@@ -90,8 +98,8 @@ main {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 20px;
+    row-gap: 5px;
+    column-gap: 5px;
    
   }
 
@@ -104,7 +112,7 @@ main {
 
   footer p {
     margin: 0px;
-    max-width: 640px;
+    max-width: var(--max-width);
     width: 100%;
     margin: auto;
     display: flex;
@@ -135,7 +143,7 @@ main {
   }
 
   .prepost__channel-name {
-    background-color: rgb(215, 228, 243);
+    background-color: rgb(233 240 249);
     padding: 2px;
     border-radius: 3px;
     display: inline-block;
@@ -152,9 +160,14 @@ h1, h2, h3, h4 {
 
 @media only screen and (max-width: 767px) {
     .post__synonyms {
-        min-height: 120px;
-    }
+    height: 70px;
+    display: block;
   }
+  .post__title {
+    height: 150px;
+    justify-content: center;
+  }
+  } 
 
   .post__title {
     font-size:55px;
@@ -169,5 +182,11 @@ h1, h2, h3, h4 {
   .post-footer__back {
     text-decoration: none;
     color: var(--dark-green);
-    font-weight: bold;
   }
+
+  .prepost__source {
+    color: gray;
+    font-size: 20px;
+  }
+
+  

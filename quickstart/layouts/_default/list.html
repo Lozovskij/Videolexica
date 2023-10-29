@@ -8,13 +8,17 @@
                 {{ $t := $taxonomy.Date }}
                 {{ $t = time.AsTime $t }}
                 {{ $format := "2 Jan 2006" }}
-                <h4 class="small-font">{{ $t.Format $format }} &nbsp; Edition: &nbsp; "{{ $taxonomy.Params.videoTitle }}"</h4>
+                <p class="small-font">{{ $t.Format $format }}</p>
+                <!-- {{ $t := $taxonomy.Date }}
+                {{ $t = time.AsTime $t }}
+                {{ $format := "2 Jan 2006" }}
+                <h4 class="small-font">{{ $t.Format $format }} &nbsp; Edition: &nbsp; "{{ $taxonomy.Params.videoTitle }}"</h4> -->
             </header>
             <div>
                 <!-- Blog post excerpt or summary -->
-                <p class="small-font">
+                <!-- <p class="prepost__source">
                     Source: <span class="prepost__channel-name small-font">{{ $taxonomy.Params.channelName }}</span>
-                </p>
+                </p> -->
             </div>
             <footer>
                 <!-- <a href="[URL]">Read more</a> -->
@@ -25,7 +29,7 @@
                 </ul>
             </footer>
         </article>
-        <br>
+        
         {{end}}
     {{ end }}
 {{ end }}

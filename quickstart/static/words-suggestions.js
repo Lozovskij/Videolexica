@@ -1,9 +1,9 @@
 changeColoring(currentWord)
 
 function setNewValues(word, time, synonyms) {
-    console.log(word);
-    console.log(time);
-    console.log(synonyms);
+    // console.log(word);
+    // console.log(time);
+    // console.log(synonyms);
     let titleElement = document.getElementById("title");
     let synonymsElement = document.getElementById("synonyms");
 
@@ -19,7 +19,6 @@ function setNewValues(word, time, synonyms) {
 function changeColoring(word) {
     var elements = document.querySelectorAll('.word-suggestion');
     elements.forEach(element => {
-        console.log(element.style);
         if (element.textContent === word) {
             element.style.color = "#e8f9ed";
             element.style.backgroundColor = '#568857';

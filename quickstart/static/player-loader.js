@@ -22,7 +22,7 @@ function loadYouTubeIframe() {
         videoId: videoId,
         playerVars: {
             'playsinline': 1,
-            'start': start
+            'start': start // for some reason that start often doesn't work
         },
         events: {
             'onReady': onPlayerReady,
@@ -49,6 +49,7 @@ function loadYouTubeIframe() {
 // }
 
 function onPlayerReady(event) {
+    player.seekTo(start);
     event.target.playVideo();
 }
 

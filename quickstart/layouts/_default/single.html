@@ -4,6 +4,15 @@
         <h2 id="title" class="post__title"> {{ .Title }} </h2>
         <!-- {{ .Content }} -->
     </header>
+    <section class="post__synonyms">
+        <!-- <p>
+            <h4>Synonyms:</h4>
+        </p> -->
+        <p>
+            <span id = "synonyms">{{ .Params.synonyms }}</span>
+        </p>
+    </section>
+   
     <section>
         <div class="player-container">
             <div id="thumbnail" onclick="loadYouTubeIframe()"></div>
@@ -13,16 +22,10 @@
         <button id="playBtn">Play</button>
         <button id="replayBtn" style="display: none;" >Repeat</button>
     </section>
-    <section class="post__synonyms">
-        <p>
-            <h4>Synonyms:</h4>
-        </p>
-        <p>
-            <span id = "synonyms">{{ .Params.synonyms }}</span>
-        </p>
-    </section>
+
+   
     <section>
-        <h4>Words from the video:</h4>
+        <!-- <h4>Words from the video:</h4> -->
         <div class="word-suggestions">
             {{ $filename := .Params.videoId }}
             {{ range index .Site.Data $filename }}
@@ -31,7 +34,7 @@
         </div>
     </section>
     <footer class="post-footer">
-        <a class="post-footer__back" href="{{ .Site.BaseURL }}#{{.Params.videoId}}" >Back</a>
+        <!-- <a class="post-footer__back" href="{{ .Site.BaseURL }}#{{.Params.videoId}}" >Back</a> -->
     </footer>
 </article>
 <script>
@@ -42,4 +45,5 @@
 <script src="/player-loader.js"></script>
 <script src="/replay-button.js"></script>
 <script src="/words-suggestions.js"></script>
+<script src="/player-buttons.js"></script>
 {{ end }}
